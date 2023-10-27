@@ -1,0 +1,7 @@
+{
+  "name": "twitter-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
