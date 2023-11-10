@@ -1,0 +1,64 @@
+<div *ngIf="tweets()?.length > 1">
+  <ion-buttons class="conteiner-filter">
+    <ion-button class="filter" (click)="ordenarMasNuevos(tweets())"> mas reciente </ion-button>
+    <ion-button class="filter" (click)="ordenarMasViejos(tweets())"> menos reciente </ion-button>
+    <ion-button class="filter" (click)="ordenarMasPopular(tweets())"> mas popular </ion-button>
+    <ion-button class="filter" (click)="ordenarMenosPopular(tweets())"> menos popular </ion-button>
+  </ion-buttons>
+</div>
+
+<ion-alert id="custom-alert" [isOpen]="isAlertOpen" subHeader="¿Confirmas que deseas eliminar este tweet?"
+  [buttons]="alertButtons" (didDismiss)="setResult($event)"></ion-alert>
+
+
+<div *ngFor="let tweet of tweets()"
+  style=" border-bottom: 0.1px solid #536471; border-top: 0.1px solid #536471; padding: 20px;">
+
+  <div class="header">
+    <ion-avatar style="width: 40px; height: 40px;">
+      <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+    </ion-avatar>
+    <span style="margin-left: 4px;color:#536471;">@{{tweet.user.username}} - {{ getTime(tweet.createdAt)}}</span>
+  </div>
+  <span style="font-weight: 700;">{{tweet.user.fullname}}</span>
+
+  <div class="content">
+
+    <div class="description" style="font-size: 15px; padding-block: 15px;">
+      {{tweet.text}}
+    </div>
+
+    <img style="display: flex; margin: 0 auto;" width="200" [src]="tweet?.image?.secure_url">
+
+    <div class="footer">
+
+      <ion-buttons slot="end">
+
+        <ion-button (click)="goToTweetComment(tweet._id)">
+          <ion-icon name="chatbubble-outline"></ion-icon>
+          <span style="margin-left: 4px;color:#536471;">{{getCountCommnet(tweet._id)}}</span>
+        </ion-button>
+
+        <ion-button (click)="onLike(tweet._id, like(tweet._id) )">
+          <ion-icon [style.color]="like(tweet._id) ? 'red' : 'black' "
+            [name]="like(tweet._id) ? 'heart': 'heart-outline'"></ion-icon>
+          <span style="margin-left: 4px;color:rgb(83, 100, 113);">{{getCountLike(tweet._id)}}</span>
+        </ion-button>
+      </ion-buttons>
+
+      <div *ngIf="tweet.user._id === idUserHtml">
+
+        <ion-buttons slot="end">
+
+          <ion-button (click)="setPreviewOpen(tweet._id,true)">
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-button>
+
+        </ion-buttons>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>

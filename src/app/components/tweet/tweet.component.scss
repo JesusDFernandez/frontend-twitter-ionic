@@ -1,0 +1,98 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+}
+
+
+.wrapper {
+    background: #fff;
+    max-width: 475px;
+    width: 100%;
+    border-radius: 15px;
+    padding: 25px 25px 15px 25px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.input-box {
+    padding-top: 10px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.input-box .tweet-area {
+
+    all: initial;
+    border: none;
+    padding: 0;
+    background: transparent;
+    resize: none;
+}
+
+.bottom {
+    display: flex;
+    margin-top: 13px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.bottom .icons {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 25px;
+}
+
+
+.bottom .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bottom button {
+    padding: 9px 18px;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    background: #1da1f2;
+    color: #fff;
+    cursor: pointer;
+}
+
+.bottom button:hover {
+    background: #8ad2ff;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.conteiner-filter {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: start;
+    align-items: center;
+    overflow-x: scroll;
+    height: 100px;
+
+}
+
+.filter {
+    --background: transparent;
+    color: #1da1f2;
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
+    font-weight: bold;
+}
