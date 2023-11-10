@@ -1,0 +1,30 @@
+<ion-content [scrollY]="true">
+  <div class="ion-content-scroll-host ion-padding" style="margin-top: 25%; ">
+
+    <div class="header">
+      <div style="display: flex; justify-content: space-between;">
+        <ion-avatar style="width: 40px; height: 40px;">
+          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </ion-avatar>
+        <div *ngIf="infoUser.id !== user.id">
+          <ion-button (click)="follow(infoUser.id,(infoUser.id))">
+            <span>{{isFollow(infoUser.id)? "Siguiendo": "Seguir"}}</span>
+          </ion-button>
+        </div>
+      </div>
+      <span style="font-size: 20px; font-weight: 700;"> {{infoUser.fullname}}</span>
+      <span style="color:#536471;">@{{infoUser.username}} </span>
+    </div>
+
+    <div class="content">
+
+      <div class="description" style="font-size: 15px; padding-block: 15px;">
+        {{infoUser.biography}}
+      </div>
+
+
+      <app-tweet [idUser]="idProfile" [onlyUser]="true"></app-tweet>
+
+    </div>
+  </div>
+</ion-content>
