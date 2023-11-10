@@ -1,0 +1,65 @@
+<ion-content class="ion-padding background">
+
+  <div class="form login">
+
+    <div style="display: flex; justify-content: center; align-items: center; color: black;">
+
+      <span class="title">Bienvenido</span>
+
+      <svg style="width: 40px; height: 40px;" viewBox="0 0 24 24" aria-hidden="true"
+        class="r-18jsvk2 r-4qtqp9 r-yyyyoo r-rxcuwo r-1777fci r-m327ed r-dnmrzs r-494qqr r-bnwqim r-1plcrui r-lrvibr">
+        <g>
+          <path
+            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+          </path>
+        </g>
+      </svg>
+
+    </div>
+    <span style="display: flex; justify-content: center; align-items: center; color: #7a7a7a;">Lo
+      que está pasando
+      ahora</span>
+
+
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <div class="input-field">
+
+        <input type="text" placeholder="Usuario" formControlName="username" required>
+
+        <i> <ion-icon name="person-outline"></ion-icon> </i>
+      </div>
+
+      <div class="input-field">
+        <input [type]="typeInputPw" class="password" formControlName="password" placeholder="Contraseña" required>
+
+        <i>
+          <ion-icon name="bag-outline"></ion-icon>
+        </i>
+
+        <i (click)="showHidePw($event)" class="showHidePw">
+          <ion-icon [name]="typeEye"></ion-icon>
+
+        </i>
+      </div>
+
+      <div class="input-field button">
+        <input type="submit" value="Iniciar">
+      </div>
+
+    </form>
+
+    <div class="login-signup">
+      <span class="text">¿No tienes una cuenta?
+        <a (click)="onRegister()" class="text signup-link">Registrate</a>
+      </span>
+    </div>
+
+    <ion-toast style="--color:red; --background:white; --border-color:black;" [isOpen]="isOpen" [message]="isMessage"
+      [duration]="3000" icon="close-circle"></ion-toast>
+
+  </div>
+
+
+</ion-content>
