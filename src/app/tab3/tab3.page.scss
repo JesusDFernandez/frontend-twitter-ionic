@@ -1,0 +1,32 @@
+button {
+    padding: 9px 18px;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    background: #1da1f2;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #8ad2ff;
+}
+
+
+.tweet-input {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    background: transparent;
+}
+
+.tweet-area {
+    border-radius: 10px;
+    resize: none;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background: transparent;
+}

@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
-
+import { loginGuards } from '../guards/login.guards';
+import { ProfilePage } from '../profile/profile.page';
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
     component: TabsPage,
+    canActivate: [loginGuards],
     children: [
       {
         path: 'tab1',
@@ -20,6 +22,14 @@ const routes: Routes = [
         loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
       },
       {
+        path: 'tweet/:id',
+        loadChildren: () => import('../tweet/tweet.module').then(m => m.TweetPageModule)
+      },
+      {
+        path: 'profile/:id',
+        loadChildren: () => import('../profile/profile.module').then(m => m.ProfilePageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'
@@ -27,7 +37,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: '',
+    path: 'tabs',
     redirectTo: '/tabs/tab1',
     pathMatch: 'full'
   }
@@ -36,4 +46,4 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }

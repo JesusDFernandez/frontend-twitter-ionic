@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-tabs',
@@ -7,6 +10,13 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
-  constructor() {}
+  private cookies = inject(CookieService);
+  authService = inject(AuthService);
 
+  constructor(private router: Router) { }
+
+  gotoBack() {
+    this.authService.logout()
+
+  }
 }
