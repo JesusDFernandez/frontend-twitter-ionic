@@ -1,0 +1,61 @@
+<ion-header style="border-bottom: 0.1px solid #536471; "
+  class="ion-no-border md header-md header-collapse-none hydrated" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goToLogin()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding background">
+
+  <div style="overflow-y: scroll;  justify-content: start;" class="form login">
+    <h1 style="display: flex;justify-content: center;align-items: center;">Crea tu cuenta </h1>
+
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <div class="input-field">
+        <input type="text" placeholder="Nombre" formControlName="fullname" required>
+        <i> <ion-icon name="person-outline"></ion-icon> </i>
+      </div>
+
+      <div class="input-field">
+        <input type="text" placeholder="Usuario" formControlName="username" required>
+        <i> <ion-icon name="person-outline"></ion-icon> </i>
+      </div>
+
+      <div style="display: grid; gap: 20px; margin-top: 20px;">
+        <label style="color: #464646; " for="biografia">Biografia</label>
+        <textarea wrap="hard" class="tweet-area" id="biografia" cols="30" formControlName="biography" rows="10">
+        </textarea>
+      </div>
+
+      <div class="input-field">
+        <input [type]="typeInputPw" class="password" placeholder="Crea una contraseña" formControlName="password"
+          required>
+        <i> <ion-icon name="bag-outline"></ion-icon> </i>
+        <i (click)="showHidePw($event)" class="showHidePw"> <ion-icon [name]="typeEye"></ion-icon> </i>
+      </div>
+
+      <div class="input-field">
+        <input [type]="typeInputPw" class="password" placeholder="Confirma la contraseña" formControlName="passwordC"
+          required>
+        <i> <ion-icon name="bag-outline"></ion-icon> </i>
+        <i (click)="showHidePw($event)" class="showHidePw"> <ion-icon [name]="typeEye"></ion-icon> </i>
+      </div>
+
+      <div class="input-field button">
+        <input type="submit" value="Registrar">
+      </div>
+
+    </form>
+  </div>
+
+  <ion-toast style="--color:red; --background:white; --border-color:black;" [isOpen]="isOpen" [message]="isMessage"
+    [duration]="3000" icon="close-circle"></ion-toast>
+
+</ion-content>
